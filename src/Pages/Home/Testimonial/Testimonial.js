@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BannerButtom = () => {
+const Testimonial = () => {
     return (
         <div>
 
@@ -8,4 +8,4 @@ const BannerButtom = () => {
     );
 };
 
-export default BannerButtom;
+export default Testimonial;
