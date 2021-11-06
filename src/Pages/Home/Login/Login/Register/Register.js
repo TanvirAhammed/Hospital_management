@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
-import { Button, Container, TextField, Typography } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, TextField, Typography } from '@mui/material';
 import login from '../../../../../images/login.png'
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../../../hooks/useAuth'
 const Register = () => {
     const [loginData, setLoginData] = useState({})
 
-    const { registerUser } = useAuth();
+    const { user, registerUser, isLoading, authError } = useAuth();
 
 
     const handleOnChange = e => {
@@ -34,7 +34,7 @@ const Register = () => {
                     <Typography variant='body1' gutterBottom>
                         Register
                     </Typography>
-                    <form onSubmit={handleLoginSubmit}>
+                    {!isLoading && <form onSubmit={handleLoginSubmit}>
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"
@@ -63,7 +63,10 @@ const Register = () => {
                         <NavLink style={{ textDecoration: 'none' }} to="/login">
                             <Button variant='text'>Already User? Please Login</Button>
                         </NavLink>
-                    </form>
+                    </form>}
+                    {isLoading && <CircularProgress />}
+                    {user?.email && <Alert severity="success">User Created Successfully!</Alert>}
+                    {authError && <Alert severity="error">{authError}</Alert>}
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <img style={{ width: '100%' }} src={login} alt='log' />

@@ -11,6 +11,7 @@ import Appointment from './Pages/Home/Appointment/Appointment/Appointment';
 import Login from './Pages/Home/Login/Login/Login';
 import Register from './Pages/Home/Login/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Home/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
       <AuthProvider>
         <Router>
           <Switch>
-            <Route path="/appointment">
+            <PrivateRoute path="/appointment">
               <Appointment></Appointment>
-            </Route>
+            </PrivateRoute>
             <Route path="/home">
               <Home />
             </Route>
