@@ -23,7 +23,7 @@ const Exceptional = () => {
                     <img maxWidth="sm" style={{ width: '100%', height: '500px' }} src={baby} alt="" />
                 </Grid>
 
-                <Grid item style={{ textAlign: 'left' }} xs={12} md={6} sm={12}>
+                <Grid item style={{ textAlign: 'left' }} xs={12} md={6} sm={4}>
                     <Box style={together}>
                         <Typography sx={{ mb: 5 }} variant='h3'>
                             Exceptional Dental <br />
